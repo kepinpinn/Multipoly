@@ -36,7 +36,15 @@ class Crm extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $crm = ModelsCrm::create([
+            'nama_customer' => $request->nama_customer,
+            'email_customer' => $request->email_customer,
+            'no_hp_customer' => $request->no_hp_customer
+        ]);
+        $crm->save();
+
+        return redirect()->route('crm.index');
     }
 
     /**
@@ -58,7 +66,9 @@ class Crm extends Controller
      */
     public function edit($id)
     {
-        //
+        $crm = ModelsCrm::findOrFail($id);
+
+        return view('crm.edit', compact(['crm']));
     }
 
     /**
@@ -81,6 +91,7 @@ class Crm extends Controller
      */
     public function destroy($id)
     {
-        //
+        ModelsCrm::destroy($id);
+        return redirect()->route('crm.index');
     }
 }

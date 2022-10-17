@@ -35,7 +35,26 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    @foreach ($crm as $c)
+                    <tr class="hover:bg-grey-lighter">
+                        <td class="py-4 px-6 border-b border-grey-light">{{ $c->id }}</td>
+                        <td class="py-4 px-6 border-b border-grey-light">{{ $c->nama_customer }}</td>
+                        <td class="py-4 px-6 border-b border-grey-light">{{ $c->email_customer }}</td>
+                        <td class="py-4 px-6 border-b border-grey-light">{{ $c->no_hp_customer }}</td>
+                        <td class="py-4 px-6 border-b border-grey-light">
+                            <p class="text-xl pb-3 flex items-center">
+                                <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded"
+                                    href="{{ route('crm.edit', ['id' => $c->id]) }}">
+                                    Edit
+                                </a>
+                            </p>
+                            <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                href="{{route('crm.destroy', ['id' => $c->id]) }}" onclick="return confirm('Yakin Hapus data?')">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

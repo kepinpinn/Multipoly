@@ -36,11 +36,17 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/user/hapus/{id}', [UserController::class, 'destroy'])->name('user.destroy');
     Route::get('/admin/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
     Route::post('/admin/user/update/{id}', [UserController::class, 'update'])->name('user.update');
+
+
 });
 
 Route::middleware(['auth'])->group(function(){
+    //CRM
     Route::get('/crm', [Crm::class, 'index'])->name('crm.index');
     Route::get('/crm/tambah', [Crm::class, 'create'])->name('crm.tambah');
+    Route::post('/crm/simpan', [Crm::class, 'store'])->name('crm.store');
+    Route::get('/crm/hapus/{id}', [Crm::class, 'destroy'])->name('crm.destroy');
+    Route::get('/crm/edit/{id}', [Crm::class, 'edit'])->name('crm.edit');
     Route::get('/penjualan', [Penjualan::class, 'index'])->name('penjualan.index');
 });
 

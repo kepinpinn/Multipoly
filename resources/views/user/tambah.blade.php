@@ -14,7 +14,7 @@
                     <div>
                         <x-input-label for="name" :value="__('Name')" />
 
-                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                        <x-text-input id="name" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" type="text" name="name" :value="old('name')" required autofocus />
 
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
@@ -23,7 +23,7 @@
                     <div class="mt-4">
                         <x-input-label for="email" :value="__('Email')" />
 
-                        <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                        <x-text-input id="email" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" type="email" name="email" :value="old('email')" required />
 
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
@@ -32,7 +32,7 @@
                     <div class="mt-4">
                         <x-input-label for="password" :value="__('Password')" />
 
-                        <x-text-input id="password" class="block mt-1 w-full"
+                        <x-text-input id="password" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                         type="password"
                                         name="password"
                                         required autocomplete="new-password" />
@@ -44,7 +44,7 @@
                     <div class="mt-4">
                         <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-                        <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                        <x-text-input id="password_confirmation" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                         type="password"
                                         name="password_confirmation" required />
 
@@ -53,7 +53,7 @@
                     <div class="mt-4">
                         <x-input-label for="role" :value="__('Role')" />
 
-                        <x-text-input id="role" class="block mt-1 w-full" type="role" name="role" :value="old('role')" required />
+                        <x-text-input id="role" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" type="role" name="role" :value="old('role')" required />
 
                         <x-input-error :messages="$errors->get('role')" class="mt-2" />
                     </div>
