@@ -34,7 +34,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/user/tambah', [UserController::class, 'create'])->name('user.create');
     Route::post('/admin/user/simpan', [UserController::class, 'store'])->name('user.store');
     Route::get('/admin/user/hapus/{id}', [UserController::class, 'destroy'])->name('user.destroy');
-
+    Route::get('/admin/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    Route::post('/admin/user/update/{id}', [UserController::class, 'update'])->name('user.update');
 });
 
 Route::middleware(['auth'])->group(function(){

@@ -44,7 +44,7 @@
                             <td class="py-4 px-6 border-b border-grey-light">
                                 <p class="text-xl pb-3 flex items-center">
                                     <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded"
-                                        href="">
+                                        href="{{ route('user.edit', ['id' => $u->id]) }}">
                                         Edit
                                     </a>
                                 </p>
