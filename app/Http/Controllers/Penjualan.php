@@ -73,7 +73,7 @@ class Penjualan extends Controller
         $crms = Crm::all();
         $penjualan = ModelsPenjualan::findOrFail($id);
 
-        return view('penjualan.edit', compact(['crms, penjualan']));
+        return view('penjualan.edit',  compact(['penjualan', 'crms']));
     }
 
     /**
@@ -85,7 +85,17 @@ class Penjualan extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $penjualan = ModelsPenjualan::findOrFail($id);
+
+        $penjualan->nama_customer = $request->nama_customer;
+        $penjualan->nama_produk = $request->nama_produk;
+        $penjualan->ukuran = $request->ukuran;
+        $penjualan->harga_produk = $request->harga_produk;
+        $penjualan->jenis_produk = $request->jenis_produk;
+
+        $penjualan->save();
+
+        return redirect()->route('penjualan.index');
     }
 
     /**

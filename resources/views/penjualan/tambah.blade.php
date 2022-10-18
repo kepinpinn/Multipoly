@@ -1,10 +1,10 @@
 <x-app-layout>
-    <h1 class="w-full text-3xl text-black pb-6">Tambah Customer</h1>
+    <h1 class="w-full text-3xl text-black pb-6">Tambah Penjualan</h1>
 
     <div class="flex flex-wrap">
         <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
             <p class="text-xl pb-6 flex items-center">
-                <i class="fas fa-list mr-3"></i> Customer Form
+                <i class="fas fa-list mr-3"></i> Form Penjualan
             </p>
             <div class="leading-loose">
                 <form method="POST" action="{{ route('penjualan.store') }}"enctype="multipart/form-data">

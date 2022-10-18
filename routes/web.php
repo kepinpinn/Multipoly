@@ -55,6 +55,7 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/penjualan/simpan', [Penjualan::class, 'store'])->name('penjualan.store');
     Route::get('/penjualan/hapus/{id}', [Penjualan::class, 'destroy'])->name('penjualan.destroy');
     Route::get('/penjualan/edit/{id}', [Penjualan::class, 'edit'])->name('penjualan.edit');
+    Route::post('/penjualan/update/{id}', [Penjualan::class, 'update'])->name('penjualan.update');
 });
 
 

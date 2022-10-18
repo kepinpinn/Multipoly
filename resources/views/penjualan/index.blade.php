@@ -44,9 +44,7 @@
                     @foreach ($penjualan as $p)
                         <tr class="hover:bg-grey-lighter">
                             <td class="py-4 px-6 border-b border-grey-light">{{ $p->id }}</td>
-                            @foreach($p->crms as $c)
-                            <td class="py-4 px-6 border-b border-grey-light">{{ $c->nama_customer }}</td>
-                            @endforeach
+                            <td class="py-4 px-6 border-b border-grey-light">{{ $p->crms->nama_customer }}</td>
                             <td class="py-4 px-6 border-b border-grey-light">{{ $p->nama_produk }}</td>
                             <td class="py-4 px-6 border-b border-grey-light">{{ $p->ukuran }}</td>
                             <td class="py-4 px-6 border-b border-grey-light">{{ $p->harga_produk }}</td>
