@@ -48,7 +48,13 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/crm/hapus/{id}', [Crm::class, 'destroy'])->name('crm.destroy');
     Route::get('/crm/edit/{id}', [Crm::class, 'edit'])->name('crm.edit');
     Route::post('/crm/update/{id}', [Crm::class, 'update'])->name('crm.update');
+
+    //Penjualan
     Route::get('/penjualan', [Penjualan::class, 'index'])->name('penjualan.index');
+    Route::get('/penjualan/tambah', [Penjualan::class, 'create'])->name('penjualan.tambah');
+    Route::post('/penjualan/simpan', [Penjualan::class, 'store'])->name('penjualan.store');
+    Route::get('/penjualan/hapus/{id}', [Penjualan::class, 'destroy'])->name('penjualan.destroy');
+    Route::get('/penjualan/edit/{id}', [Penjualan::class, 'edit'])->name('penjualan.edit');
 });
 
 

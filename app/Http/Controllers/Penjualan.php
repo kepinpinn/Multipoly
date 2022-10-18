@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Crm;
 use App\Models\Penjualan as ModelsPenjualan;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class Penjualan extends Controller
      */
     public function create()
     {
-        //
+        $crms = Crm::all();
+        return view('penjualan.tambah', compact(['crms']));
     }
 
     /**
@@ -36,7 +38,17 @@ class Penjualan extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $penjualan = ModelsPenjualan::create([
+            'nama_customer' => $request->nama_customer,
+            'nama_produk' => $request->nama_produk,
+            'ukuran' => $request->ukuran,
+            'harga_produk' => $request->harga_produk,
+            'jenis_produk' => $request->jenis_produk,
+        ]);
+
+        $penjualan->save();
+
+        return redirect()->route('penjualan.index');
     }
 
     /**
@@ -58,7 +70,10 @@ class Penjualan extends Controller
      */
     public function edit($id)
     {
-        //
+        $crms = Crm::all();
+        $penjualan = ModelsPenjualan::findOrFail($id);
+
+        return view('penjualan.edit', compact(['crms, penjualan']));
     }
 
     /**
@@ -81,6 +96,8 @@ class Penjualan extends Controller
      */
     public function destroy($id)
     {
-        //
+        ModelsPenjualan::destroy($id);
+
+        return redirect()->route('penjualan.index');
     }
 }

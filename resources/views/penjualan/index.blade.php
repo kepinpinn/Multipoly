@@ -7,7 +7,7 @@
         <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
             <p class="text-xl pb-3 flex items-center">
                 <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    href="{{ route('crm.tambah') }}">
+                    href="{{ route('penjualan.tambah') }}">
                     Tambah Penjualan
                 </a>
             </p>
@@ -41,7 +41,31 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    @foreach ($penjualan as $p)
+                        <tr class="hover:bg-grey-lighter">
+                            <td class="py-4 px-6 border-b border-grey-light">{{ $p->id }}</td>
+                            @foreach($p->crms as $c)
+                            <td class="py-4 px-6 border-b border-grey-light">{{ $c->nama_customer }}</td>
+                            @endforeach
+                            <td class="py-4 px-6 border-b border-grey-light">{{ $p->nama_produk }}</td>
+                            <td class="py-4 px-6 border-b border-grey-light">{{ $p->ukuran }}</td>
+                            <td class="py-4 px-6 border-b border-grey-light">{{ $p->harga_produk }}</td>
+                            <td class="py-4 px-6 border-b border-grey-light">{{ $p->jenis_produk }}</td>
+                            <td class="py-4 px-6 border-b border-grey-light">
+                                <p class="text-xl pb-3 flex items-center">
+                                    <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded"
+                                        href="{{ route('penjualan.edit', ['id' => $p->id]) }}">
+                                        Edit
+                                    </a>
+                                </p>
+                                <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                    href="{{ route('penjualan.destroy', ['id' => $p->id]) }}"
+                                    onclick="return confirm('Yakin Hapus data?')">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

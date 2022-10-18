@@ -13,4 +13,7 @@ class Crm extends Model
         'email_customer',
         'no_hp_customer'
     ];
+    public function penjualans(){
+        return $this->hasMany(Penjualan::class);
+    }
 }
