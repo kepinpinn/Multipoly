@@ -80,7 +80,14 @@ class Crm extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $crm = ModelsCrm::findOrFail($id);
+
+        $crm->nama_customer = $request->nama_customer;
+        $crm->email_customer = $request->email_customer;
+        $crm->no_hp_customer = $request->no_hp_customer;
+
+        $crm->save();
+        return redirect()->route('crm.index');
     }
 
     /**

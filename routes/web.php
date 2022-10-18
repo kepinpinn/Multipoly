@@ -47,6 +47,7 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/crm/simpan', [Crm::class, 'store'])->name('crm.store');
     Route::get('/crm/hapus/{id}', [Crm::class, 'destroy'])->name('crm.destroy');
     Route::get('/crm/edit/{id}', [Crm::class, 'edit'])->name('crm.edit');
+    Route::post('/crm/update/{id}', [Crm::class, 'update'])->name('crm.update');
     Route::get('/penjualan', [Penjualan::class, 'index'])->name('penjualan.index');
 });
 
