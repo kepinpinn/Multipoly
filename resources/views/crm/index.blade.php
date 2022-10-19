@@ -6,10 +6,12 @@
         </p>
         <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
             <p class="text-xl pb-3 flex items-center">
+                @if (Auth::user()->role == 'marketing')
                 <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     href="{{route ('crm.tambah')}}">
                     Tambah Data Customer
                 </a>
+                @endif
             </p>
         </div>
         <div class="bg-white overflow-auto">

@@ -6,11 +6,18 @@
         </p>
         <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
             <p class="text-xl pb-3 flex items-center">
-                <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    href="{{ route('penjualan.tambah') }}">
-                    Tambah Penjualan
+                @if (Auth::user()->role == 'marketing')
+                    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        href="{{ route('penjualan.tambah') }}">
+                        Tambah Penjualan
+                    </a>
+                @endif
+                <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                    href="{{ route('export.excel') }}">
+                    Export Excel
                 </a>
             </p>
+
         </div>
         <div class="bg-white overflow-auto">
             <table class="text-left w-full border-collapse">

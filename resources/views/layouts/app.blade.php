@@ -50,35 +50,34 @@
 <body class="bg-gray-100 font-family-karla flex">
     <aside class="relative bg-gray-900 h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6  bg-gray-900">
-            <a href=""
-                class="text-white text-3xl font-semibold uppercase hover:text-gray-300">{{ Auth::user()->role }}</a>
-            @if (Auth::user()->role == 'user')
-                <button
-                    class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
+            <p class="text-white text-3xl font-semibold uppercase">{{ Auth::user()->role }}</p>
+            <p class="text-white text-xl font-semibold uppercase">{{ Auth::user()->name }}</p>
+            @if (Auth::user()->role == 'marketing')
+                <a class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center"
+                    href="{{ route('penjualan.tambah') }}">
                     <i class="fas fa-plus mr-3"></i> Tambah PO
-                </button>
+                </a>
             @endif
 
         </div>
         <nav class="text-white text-base font-semibold pt-3 bg-gray-900">
-            <a href="{{ route('admin.index') }}"
-                class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="{{ route('admin.index') }}" class="flex items-center nav-link text-white py-4 pl-6 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Dashboard
             </a>
             <a href="{{ route('penjualan.index') }}"
-                class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                class="flex items-center nav-link text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-table mr-3"></i>
                 Penjualan
             </a>
             <a href="{{ route('crm.index') }}"
-                class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                class="flex items-center nav-link text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-users mr-3"></i>
                 CRM
             </a>
             @if (Auth::user()->role == 'admin')
                 <a href="{{ route('user.index') }}"
-                    class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    class="flex items-center nav-link text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-user-alt mr-3"></i>
                     Users
                 </a>
@@ -109,7 +108,7 @@
         </header>
         <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-                {{$slot}}
+                {{ $slot }}
             </main>
 
             <footer class="w-full bg-white text-right p-4">

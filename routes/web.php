@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin', [DashboardController::class, 'index'])->name('admin.index');
+
     //User
     Route::get('/admin/user', [UserController::class, 'index'])->name('user.index');
     Route::get('/admin/user/tambah', [UserController::class, 'create'])->name('user.create');
@@ -41,6 +41,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function(){
+    Route::get('/admin', [DashboardController::class, 'index'])->name('admin.index');
     //CRM
     Route::get('/crm', [Crm::class, 'index'])->name('crm.index');
     Route::get('/crm/tambah', [Crm::class, 'create'])->name('crm.tambah');
@@ -56,6 +57,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/penjualan/hapus/{id}', [Penjualan::class, 'destroy'])->name('penjualan.destroy');
     Route::get('/penjualan/edit/{id}', [Penjualan::class, 'edit'])->name('penjualan.edit');
     Route::post('/penjualan/update/{id}', [Penjualan::class, 'update'])->name('penjualan.update');
+
+    //Export
+    Route::get('/exportexcel', [Penjualan::class, 'exportexcel'])->name('export.excel');
 });
 
 

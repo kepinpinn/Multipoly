@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PenjualanExport;
 use App\Models\Crm;
 use App\Models\Penjualan as ModelsPenjualan;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Penjualan extends Controller
 {
@@ -109,5 +112,9 @@ class Penjualan extends Controller
         ModelsPenjualan::destroy($id);
 
         return redirect()->route('penjualan.index');
+    }
+
+    public function exportexcel(){
+         return Excel::download(new PenjualanExport, 'datapenjualan.xlsx');
     }
 }
