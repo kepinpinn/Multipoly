@@ -8,6 +8,7 @@
     <meta name="author" content="Vincentius Kelvin Lianto">
     <meta name="description" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
@@ -57,6 +58,11 @@
                     href="{{ route('penjualan.tambah') }}">
                     <i class="fas fa-plus mr-3"></i> Tambah PO
                 </a>
+            @elseif(Auth::user()->role == 'admin')
+                <a class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center"
+                    href="{{ route('penjualan.tambah') }}">
+                    <i class="fas fa-plus mr-3"></i> Tambah PO
+                </a>
             @endif
 
         </div>
@@ -68,12 +74,22 @@
             <a href="{{ route('penjualan.index') }}"
                 class="flex items-center nav-link text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-table mr-3"></i>
-                Penjualan
+                Sales
             </a>
             <a href="{{ route('crm.index') }}"
                 class="flex items-center nav-link text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-users mr-3"></i>
                 CRM
+            </a>
+            <a href=""
+                class="flex items-center nav-link text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-hourglass mr-3"></i>
+                Production
+            </a>
+            <a href=""
+                class="flex items-center nav-link text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-warehouse mr-3"></i>
+                Inventory
             </a>
             @if (Auth::user()->role == 'admin')
                 <a href="{{ route('user.index') }}"
@@ -83,7 +99,6 @@
                 </a>
             @endif
         </nav>
-
     </aside>
 
     <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
