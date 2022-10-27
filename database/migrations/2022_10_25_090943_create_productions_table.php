@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('productions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_inventory');
-            $table->string('status');
+            $table->string('status')->default('On Progress');
             $table->timestamps();
 
             $table->foreign('id_inventory')->references('id')->on('inventories')->onDelete('cascade');
